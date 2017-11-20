@@ -13,8 +13,7 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh 'export PATH=$PATH:/Users/wales_adepejuhotmail.com/Documents/apache-maven-3.5.2/bin'
-                sh 'mvn clean package'
+                sh '/Users/wales_adepejuhotmail.com/Documents/apache-maven-3.5.2/bin/mvn clean package'
             }
             post {
                 success {
