@@ -1,12 +1,5 @@
 pipeline {
-    agent any
-    tools {
-       Apache Maven 3.3
-       //maven 'LPT-Maven'
-       // without mavenSettingsConfig, my settings.xml is not used.  With it, this blows up
-       mavenSettingsConfig: 'Global Maven Settings'
-   }
-    
+    agent any 
     parameters { 
          string(name: 'tomcat_dev', defaultValue: 'localhost:9080', description: 'Staging Server')
          string(name: 'tomcat_prod', defaultValue: 'localhost:8090', description: 'Production Server')
@@ -19,6 +12,10 @@ pipeline {
 stages{
         stage('Build'){
             steps {
+              withMaven(maven: 'LPT-Maven', mavenSettingsConfig: 'mvn-setting-xml') {
+                sh "mvn clean install "
+    }
+}
                 sh 'mvn clean package'
             }
             post {
