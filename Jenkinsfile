@@ -5,14 +5,18 @@ pipeline {
          string(name: 'tomcat_dev', defaultValue: 'localhost:9080', description: 'Staging Server')
          string(name: 'tomcat_prod', defaultValue: 'localhost:8090', description: 'Production Server')
     } 
-
+    node {
+        def mvnHome
+        
+        stage('Preparation') {
+             mvnHome = tool 'LPT-Maven'
+        }
     triggers {
          pollSCM('H * * * *') 
      }
 
 stages{
         stage('Build'){
-            mvnHome = tool 'LPT-Maven'
             steps {
                 sh "'${mvnHome}/bin/mvn' clean package"
             }
