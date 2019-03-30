@@ -1,10 +1,11 @@
 pipeline {
-    agent any 
+    agent any
+    
     parameters { 
          string(name: 'tomcat_dev', defaultValue: 'localhost:9080', description: 'Staging Server')
          string(name: 'tomcat_prod', defaultValue: 'localhost:8090', description: 'Production Server')
     } 
- 
+
     triggers {
          pollSCM('H * * * *') 
      }
@@ -12,12 +13,8 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-              withMaven(maven: 'LPT-Maven', mavenSettingsConfig: 'mvn-setting-xml') {
                 sh 'mvn clean package'
-    }
-}
-//                sh 'mvn clean package'
-//            }
+            }
             post {
                 success {
                     echo 'Now Archiving...'
