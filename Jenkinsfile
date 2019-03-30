@@ -1,5 +1,11 @@
 pipeline {
     agent any
+    tools{
+       maven 'LPT-Maven'
+       // without mavenSettingsConfig, my settings.xml is not used.  With it, this blows up
+       mavenSettingsConfig: 'Global Maven Settings'
+       jdk 'jdk9
+   }
     
     parameters { 
          string(name: 'tomcat_dev', defaultValue: 'localhost:9080', description: 'Staging Server')
