@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    tools{
+    tools {
        Apache Maven 3.3
        //maven 'LPT-Maven'
        // without mavenSettingsConfig, my settings.xml is not used.  With it, this blows up
