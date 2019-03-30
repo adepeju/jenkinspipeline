@@ -4,7 +4,6 @@ pipeline {
        maven 'LPT-Maven'
        // without mavenSettingsConfig, my settings.xml is not used.  With it, this blows up
        mavenSettingsConfig: 'Global Maven Settings'
-       jdk 'jdk9
    }
     
     parameters { 
