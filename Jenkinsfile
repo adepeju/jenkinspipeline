@@ -12,8 +12,9 @@ pipeline {
 
 stages{
         stage('Build'){
+            mvnHome = tool 'LPT-Maven'
             steps {
-                sh 'mvn clean package'
+                sh "'${mvnHome}/bin/mvn' clean package"
             }
             post {
                 success {
