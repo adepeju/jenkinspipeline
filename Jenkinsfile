@@ -12,6 +12,7 @@ pipeline {
 
 stages{
         
+  steps {
     stage('Build'){
         
        node {
@@ -59,5 +60,6 @@ stages{
             }
         }
     }
+}
 }
 }
