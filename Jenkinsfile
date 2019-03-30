@@ -13,7 +13,8 @@ pipeline {
 stages{
         stage('Build'){
             steps {
-                sh '/Users/wales_adepejuhotmail.com/Documents/apache-maven-3.5.2/bin/mvn clean package'
+         //       sh '/Users/wales_adepejuhotmail.com/Documents/apache-maven-3.5.2/bin/mvn clean package'
+                sh 'mvn clean package'
             }
             post {
                 success {
