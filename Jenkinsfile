@@ -10,9 +10,9 @@ pipeline {
          pollSCM('H * * * *') 
      }
 
-stages{
+steps{
         
-  steps {
+  stages {
     stage('Build'){
         
        node {
